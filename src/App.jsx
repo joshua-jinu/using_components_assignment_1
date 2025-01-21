@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Bookcard from './components/bookcard';
 
 function App() {
   const books = [
@@ -34,7 +35,23 @@ function App() {
     },
   ];
 
-  return <>{/* write code to display all the books using */}</>;
+  const stylobj ={
+    display: "flex",
+    flexWrap: "wrap",
+    flexDirection: "row"
+  }
+
+  return (<div style={stylobj}>
+    {books.map((book)=>{
+      return <Bookcard 
+        key={book.id}
+        name={book.name}
+        image={book.image}
+        genre={book.genre}
+        author={book.author}
+      />
+    })
+  }</div>);
 }
 
 export default App;
